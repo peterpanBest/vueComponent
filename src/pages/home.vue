@@ -36,7 +36,7 @@
             routeGo(value) {
                 switch (value) {
                     case 1:
-                        this.$router.push("/home/LoginP365")
+                        this.$router.push("/LoginP365")
                         break;
                 }
             }

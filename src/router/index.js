@@ -21,7 +21,7 @@ export default new Router({
       ]
     },
     {
-      path: '/home/LoginP365',
+      path: '/LoginP365',
       component: LoginP365
     }
   ]

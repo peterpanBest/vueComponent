@@ -20,18 +20,14 @@
                         </div>
                     </div>
                     <el-form-item>
-                        <span class="checkContainer">
-                            <label for="remChk" class="checkLabel">Remember Me</label>
-                            <input type="checkbox" name="" id="remChk" class="remChk">
-                        </span>
+                        <label for="remChk" class="checkLabel">
+                            <span class="remChkBox">
+                                <span class="remChkBoxIn"></span>
+                                <input type="checkbox" id="remChk" class="remChk">
+                            </span>
+                            <span class="checkTitle">Remember</span>
+                        </label>
                     </el-form-item>
-                     <el-form-item v-show="errorInfoCon">
-                        <div class="error-info">
-                            <span class="error-line"></span>
-                            <span class="error-txt">{{errorInfo}}</span>
-                            <span class="error-line"></span>
-                        </div>
-                     </el-form-item>
                     <el-form-item>
                         <el-button type="primary" style="width:100%;height:50px;font-weight:450;font-szie:19px;"><i class="el-icon-news" style="font-size:18px;padding-right:10px;"></i>Login</el-button>
                     </el-form-item>
@@ -46,9 +42,7 @@
         name: "LoginP365",
         data() {
             return {
-                checked: false,
-                errorInfo: "",
-                errorInfoCon: false
+                checked: false
             }
         }
     }
@@ -136,8 +130,9 @@
         bottom: 0;
         left: -50%;
         right: -50%;
+        -webkit-transform: scale(0.5);
         transform: scale(0.5);
-        border-bottom: 2px solid #c0c0c0;
+        border-bottom: 1px solid #c0c0c0;
     }
 
     .title-span{
@@ -188,40 +183,55 @@
         border-top: 1px solid #c0c0c0;
     }
 
-    .checkContainer{
+    .remChkBox{
+        white-space: nowrap;
+        cursor: pointer;
+        outline: none;
         display: inline-block;
-        float: left;
+        line-height: 1;
         position: relative;
-    }
+        vertical-align: middle;
 
-    .remChk{
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
     }
 
     .checkLabel{
-       margin-left: 20px;
-    }
-
-    .error-info{
-        width: 100%;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-    }
-
-    .error-line{
+        color: #606266;
+        font-weight: 500;
+        font-size: 14px;
+        position: relative;
+        cursor: pointer;
         display: inline-block;
-        width: 150px;
-        border-top: 1px solid #ccc;
+        white-space: nowrap;
+        user-select: none;
     }
 
-    .error-txt{
-        color: #686868;
-        vertical-align: -3px;
-        color: #DA4453;
-        padding: 0 10px;
+    .remChkBoxIn{
+        display: inline-block;
+        position: relative;
+        border: 1px solid #dcdfe6;
+        border-radius: 2px;
+        box-sizing: border-box;
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        z-index: 1;
+        transition: border-color .25s cubic-bezier(.71,-.46,.29,1.46),background-color .25s cubic-bezier(.71,-.46,.29,1.46);
+    }
+
+    .remChk{
+        opacity: 0;
+        outline: none;
+        position: absolute;
+        margin: 0;
+        width: 0;
+        height: 0;
+        z-index: -1 
+    }
+
+    .checkTitle{
+        display: inline-block;
+        padding-left: 10px;
+        line-height: 19px;
+        font-size: 14px;
     }
 </style>
